@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* common */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0; padding:0;}
+html,body{-webkit-text-size-adjust:none;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}
+figure{margin:0;}
+body, button, input, select, textarea{font:0.75em/1.5 "PingFangSC","San Francisco","NotoSans","Roboto","STHeiti SC",'microsoft yahei',arial,sans-serif, \5b8b\4f53;}
+h1, h2, h3, h4, h5, h6{font-size:100%;font-weight: normal;}
+address, cite, dfn, em, var{font-style:normal}
+code, kbd, pre, samp{font-family:courier new,courier,monospace;}
+small{font-size:12px;}
+ul, ol{list-style:none;}
+a{text-decoration:none; blr:expression(this.onFocus=this.blur()); outline: none; color:#b6b5b5; display:block;} /*虚线框 IE: blr:expression(this.onFocus=this.blur()); FF: outline: none */
+a:hover{text-decoration:none;}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+fieldset, img{border:0;}
+img{display:block;width: 100%;}
+button, input, select, textarea{font-size:100%;appearance: none;-webkit-appearance: none;outline: none;}
+table{border-collapse:collapse;border-spacing:0;}
+* {box-sizing: border-box;-webkit-box-sizing: border-box;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);-webkit-touch-callout: none;}
+body{font-size: 0.124rem;color: #333;}
+.fy-head{
+  width: 100%;
+  margin: 0 auto;
+  height: 50px;
+  border-bottom: 1px solid #e8989a;
+}
+.fy-head .fy-head-left{
+  float: left;
+  margin-left: 15%;
+}
+.fy-head-left .fy-btn{
+  float: left;
+  background: url("../../assets/img/home/fybtn.png");
+  width: 32px;
+  height: 32px;
+  margin-top: 4px;
+}
+.fy-head-left .fy-title{
+  float: left;
+  margin-left: 20px;
+  color: #e8989a;
+  font-size: 25px;
+  font-weight: bold;
+  height: 50px;
+  line-height: 50px;
+  letter-spacing: 3px;
+}
+.fy-head .fy-head-right{
+  float: right;
+  margin: 0 auto;
+  height: 50px;
+  margin-right: 15%;
+}
+.fy-pink-btn{
+  color: white;
+  font-size: 18px;
+  background-color: #e8989a;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 10px;
+}
+.fy-white-btn{
+  color: #e8989a;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #e8989a;
+  border-radius: 10px;
+}
+.fy-head-right .fy-set{
+  float: right;
+  width: 64px;
+}
+.fy-head-right .fy-about{
+  float: right;
+  margin-right: 30px;
+  width: 94px;
+}
+.fy-main{
+  width: 80%;
+  margin: 30px auto 0;
+}
+.fy-main::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.fy-main .fy-main-left{
+  float: left;
+  width: 65%;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-right: 1px solid #e8989a;
+}
+.fy-main .fy-main-right{
+  float: right;
+  width: 30%;
+  margin: 10px 10px auto 0;
+}
+.fy-main .fy-main-left .fy-main-jieshao{
+  font-size: 25px;
+  text-align: left;
+  font-weight: inherit;
+}
+.fy-main-left .fy-main-art1{
+  font-size: 18px;
+  text-align: left;
+  font-weight: inherit;
+  margin-top: 20px;
+}
+.art2{
+  margin-bottom: 20px;
+}
+.fy-main-left .fy-main-tit1{
+  color: #e8989a;
+}
+.fy-main-zhuce{
+  margin: 15px auto 10px;
+  width: 94px;
+}
+.fy-main-denglu{
+  margin: 10px auto 0;
+  width: 64px;
+}
+.fy-foot{
+  margin: 30px auto 0;
+  width: 80%;
+}
+.fy-foot::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.fy-foot li{
+  font-size: 17px;
+  float: left;
+  word-wrap:break-word;
+  width: 20%;
+}
+.fy-foot li::before{
+  content: '';
+  padding-top: 100%;
+  float: left;
+}
+.fy-foot li::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.fy-end{
+  margin: 30px auto 0;
+  width: 80%;
+  border-top: 1px solid #e8989a;
+}
+.fy-end p{
+  text-align: right;
+  font-size: 16px;
+  margin-top: 10px;
+}
