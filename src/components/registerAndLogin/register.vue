@@ -12,6 +12,7 @@
           <span>{{val}}</span>
           <input type="text">
         </div>
+        <a class="">创建用户</a>
       </div>
       <div class="fy-main-right">
         <p>已经有账号了？</p>
@@ -37,6 +38,7 @@ export default {
   },
   methods: {
     fylogin () { // 立即登录
+      this.$router.push({path: 'login', params: {}})
     }
   }
 }
