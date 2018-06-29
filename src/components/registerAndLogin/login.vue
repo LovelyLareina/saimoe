@@ -8,14 +8,15 @@
     </div>
     <div class="fy-main">
       <div class="fy-main-left">
+        <p>登录</p>
         <div class="fy-register-form" v-for="(val, idx) in dataList" :key="idx">
           <span>{{val}}</span>
           <input type="text">
         </div>
       </div>
       <div class="fy-main-right">
-        <p>已经有账号了？</p>
-        <a class="fy-about-btn" @click="fydenglu">立刻登录>></a>
+        <p>还没有账号？</p>
+        <a class="fy-about-btn" @click="fylogin">马上注册>></a>
       </div>
     </div>
     <div class="fy-end">
@@ -25,10 +26,10 @@
 </template>
 <script>
 export default {
-  name: 'register',
+  name: 'login',
   data () {
     return {
-      dataList: ['邮箱', '密码', '确认密码', '昵称']
+      dataList: ['邮箱', '密码']
     }
   },
   created () {
@@ -36,7 +37,7 @@ export default {
   mounted () {
   },
   methods: {
-    fydenglu () { // 立即登录
+    fylogin () { // 立即登录
     }
   }
 }
@@ -44,6 +45,4 @@ export default {
 
 <style scoped>
   @import "../../assets/css/main.css";
-  .fy-register-form{
-  }
 </style>

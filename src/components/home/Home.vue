@@ -18,7 +18,7 @@
       <div class="fy-main-right">
         <a class="fy-main-zhuce fy-pink-btn" @click="register">立即注册</a>
         <p>or</p>
-        <a class="fy-main-denglu fy-pink-btn">登录</a>
+        <a class="fy-main-denglu fy-pink-btn" @click="login">登录</a>
       </div>
     </div>
     <div class="fy-foot">
@@ -52,6 +52,9 @@ export default {
     },
     register () { // 立即注册
       this.$router.push({path: 'register', params: {}})
+    },
+    login () { // 登录
+      this.$router.push({path: 'login', params: {}})
     }
   }
 }
