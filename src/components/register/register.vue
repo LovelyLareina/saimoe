@@ -14,7 +14,8 @@
         </div>
       </div>
       <div class="fy-main-right">
-        <a class="fy-about-btn" @click="gotoHome">返回首页>></a>
+        <p>已经有账号了？</p>
+        <a class="fy-about-btn" @click="fydenglu">立刻登录>></a>
       </div>
     </div>
     <div class="fy-end">
@@ -35,6 +36,8 @@ export default {
   mounted () {
   },
   methods: {
+    fydenglu () { // 立即登录
+    }
   }
 }
 </script>
