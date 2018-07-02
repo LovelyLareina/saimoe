@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
   @import "../../assets/css/main.css";
   .fy-tips{
     margin-top: 20px;

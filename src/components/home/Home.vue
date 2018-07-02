@@ -1,17 +1,19 @@
 <template>
   <div>
     <div class="fy-head">
-      <div class="fy-head-left">
-        <div class="fy-btn"></div>
-        <p class="fy-title">风影</p>
-      </div>
-      <div class="fy-head-right">
-        <a class="fy-about fy-white-btn" @click="aboutFy">关于风影</a>
+      <div class="fy-head-wrapper clearfix">
+        <div class="fy-head-left">
+          <div class="fy-btn"></div>
+          <h1 class="fy-title">风影</h1>
+        </div>
+        <div class="fy-head-right">
+          <a class="fy-white-btn" @click="aboutFy">关于风影</a>
+        </div>
       </div>
     </div>
     <div class="fy-main">
       <div class="fy-main-left">
-        <p class="fy-main-jieshao">风影是一个简单、私密的日记本。</p>
+        <h2>风影是一个简单、私密的日记本。</h2>
         <p class="fy-main-art1"><span class="fy-main-tit1">私密</span><span>：完全私密的个人空间，在这里你可以安心的记录最真实的自己。</span></p>
         <p class="fy-main-art1 art2"><span class="fy-main-tit1">简单</span><span>：去繁就简，专注于提供简洁、纯粹的日记功能。</span></p>
       </div>
@@ -36,6 +38,7 @@
   </div>
 </template>
 <script>
+import { search } from '../../bmob'
 export default {
   name: 'Home',
   data () {
@@ -43,6 +46,9 @@ export default {
     }
   },
   created () {
+    search({
+      name: '111'
+    })
   },
   mounted () {
   },
@@ -60,5 +66,4 @@ export default {
 }
 </script>
 <style scoped>
-  @import "../../assets/css/main.css";
 </style>
