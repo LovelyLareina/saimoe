@@ -1,11 +1,6 @@
 <template>
   <div>
-    <div class="fy-head">
-      <div class="fy-head-left">
-        <div class="fy-btn"></div>
-        <p class="fy-title">风影</p>
-      </div>
-    </div>
+    <fy-head :show-about="false"></fy-head>
     <div class="fy-main">
       <div class="fy-main-left">
         <div class="fy-about-div">
@@ -37,17 +32,16 @@
         </div>
       </div>
       <div class="fy-main-right">
-        <a class="fy-about-btn" @click="gotoHome">返回首页>></a>
+        <a class="fy-about-btn fy-underline-btn fy-cursor-btn" @click="gotoHome">返回首页>></a>
       </div>
-    </div>
-    <div class="fy-end">
-      <p>☀你我就像是风的影子，与有趣的故事一起探过无数的桥与路。</p>
     </div>
   </div>
 </template>
 <script>
+import FyHead from '../common/fyHead.vue'
 export default {
   name: 'Home',
+  components: {FyHead},
   data () {
     return {
     }
@@ -88,8 +82,5 @@ export default {
     float: right;
     margin-top: 10px;
     margin-right: 20px;
-    font-size: 16px;
-    color: #e8989a;
-    text-decoration: underline;
   }
 </style>

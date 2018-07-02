@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-
     <router-view/>
-
+    <div class="fy-end">
+      <p>☀你我就像是风的影子，与有趣的故事一起探过无数的桥与路。</p>
+    </div>
   </div>
 </template>
 

@@ -16,12 +16,14 @@ sup{vertical-align:text-top;}
 sub{vertical-align:text-bottom;}
 fieldset, img{border:0;}
 img{display:block;width: 100%;}
-button, input, select, textarea{font-size:100%;appearance: none;-webkit-appearance: none;outline: none;}
+button, input, select, textarea{font-size:100%;appearance: none;-webkit-appearance: none;outline: none;border-radius: 0;}
 table{border-collapse:collapse;border-spacing:0;}
 * {box-sizing: border-box;-webkit-box-sizing: border-box;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);-webkit-touch-callout: none;}
 body{font-size: 0.124rem;color: #333; padding-bottom: 50px}
-
-
+input{
+  border:#e8989a 0.5px solid;
+  font-size: 16px;
+}
 .clearfix::after {
   content: '';
   display: block;
@@ -70,6 +72,12 @@ body{font-size: 0.124rem;color: #333; padding-bottom: 50px}
   padding: 8px 13px;
   border-radius: 5px;
 }
+.fy-pink-btn:hover{
+  color: #e8989a;
+  background-color: white;
+  border: 1px solid #e8989a;
+  padding: 7px 12px;
+}
 .fy-white-btn{
   color: #e8989a;
   text-align: center;
@@ -78,8 +86,12 @@ body{font-size: 0.124rem;color: #333; padding-bottom: 50px}
   line-height: 40px;
   border: 1px solid #e8989a;
   border-radius: 5px;
-  cursor: pointer;
   padding: 8px;
+}
+.fy-white-btn:hover{
+  color: white;
+  background-color: #e8989a;
+  border-radius: 5px;
 }
 .fy-head-right .fy-set{
   float: right;
@@ -143,14 +155,11 @@ body{font-size: 0.124rem;color: #333; padding-bottom: 50px}
   word-wrap:break-word;
   width: 20%;
 }
-
 .fy-foot ul::after{
   content: '';
   display: block;
   clear: both;
 }
-
-
 .fy-foot li::before{
   content: '';
   padding-top: 100%;
@@ -161,9 +170,6 @@ body{font-size: 0.124rem;color: #333; padding-bottom: 50px}
   display: block;
   clear: both;
 }
-
-
-
 .fy-end{
   margin: 30px auto 0;
   width: 80%;
@@ -173,4 +179,16 @@ body{font-size: 0.124rem;color: #333; padding-bottom: 50px}
   text-align: right;
   font-size: 16px;
   margin-top: 10px;
+}
+.fy-underline-btn{
+  font-size: 16px;
+  color: #e8989a;
+  text-decoration: underline;
+}
+.fy-underline-btn:hover{
+  font-weight: bold;
+  text-decoration: underline;
+}
+.fy-cursor-btn{
+  cursor: pointer;
 }

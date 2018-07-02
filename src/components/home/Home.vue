@@ -1,16 +1,6 @@
 <template>
   <div>
-    <div class="fy-head">
-      <div class="fy-head-wrapper clearfix">
-        <div class="fy-head-left">
-          <div class="fy-btn"></div>
-          <h1 class="fy-title">风影</h1>
-        </div>
-        <div class="fy-head-right">
-          <a class="fy-white-btn" @click="aboutFy">关于风影</a>
-        </div>
-      </div>
-    </div>
+    <fy-head :show-about="true"></fy-head>
     <div class="fy-main">
       <div class="fy-main-left">
         <h2>风影是一个简单、私密的日记本。</h2>
@@ -18,9 +8,9 @@
         <p class="fy-main-art1 art2"><span class="fy-main-tit1">简单</span><span>：去繁就简，专注于提供简洁、纯粹的日记功能。</span></p>
       </div>
       <div class="fy-main-right">
-        <a class="fy-main-zhuce fy-pink-btn" @click="register">立即注册</a>
+        <a class="fy-main-zhuce fy-pink-btn fy-cursor-btn" @click="register">立即注册</a>
         <p>or</p>
-        <a class="fy-main-denglu fy-pink-btn" @click="login">登录</a>
+        <a class="fy-main-denglu fy-pink-btn fy-cursor-btn" @click="login">登录</a>
       </div>
     </div>
     <div class="fy-foot">
@@ -32,15 +22,14 @@
         <li>555555555555555555555555511111111111111111111155111111111111111111111555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555</li>
       </ul>
     </div>
-    <div class="fy-end">
-      <p>☀你我就像是风的影子，与有趣的故事一起探过无数的桥与路。</p>
-    </div>
   </div>
 </template>
 <script>
 import { search } from '../../bmob'
+import FyHead from '../common/fyHead.vue'
 export default {
   name: 'Home',
+  components: {FyHead},
   data () {
     return {
     }
@@ -53,9 +42,6 @@ export default {
   mounted () {
   },
   methods: {
-    aboutFy () { // 关于风影
-      this.$router.push({path: 'aboutFy', params: {}})
-    },
     register () { // 立即注册
       this.$router.push({path: 'register', params: {}})
     },
