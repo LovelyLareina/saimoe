@@ -54,18 +54,20 @@ export default {
       if (!this.verificate(this.userData)) { // 用户信息有误
         return
       }
+      let self = this
       register(data).then((result) => {
-        if (result.code === '001') {
-          let emailFormat = `**${result.email.substring(2)}`
-          this._showMessage(`请先验证${emailFormat}邮箱！`)
-        } else if (result.code === '000') {
-          console.log('登录成功')
-          window.localStorage.setItem('avatar', result.avatar)
-          this.$router.push({path: 'BAM', query: {'userId': result.userId}})
-        }
-      }, (error) => {
-        if (error.code === 101) {
-          this._showMessage(`用户名或密码错误！`)
+        console.log(result)
+        this.showMessage(`恭喜你，注册成功！`, function () {
+          self.isLogin = true
+        })
+      }, (res) => {
+        if (res.code === 202) {
+          self.showMessage(`昵称已经存在`)
+        } else if (res.code === 203) {
+          self.showMessage(`邮箱已经存在`)
+        } else {
+          self.showMessage(`${res.message}`)
+          console.log(`${res.message}`)
         }
       })
     },
@@ -101,7 +103,7 @@ export default {
       }
       this.sendMessage = msg
       this.messageShow = true
-      // this.hideMessage(cb)
+      this.hideMessage(cb)
     },
     hideMessage (cb) { // 关闭提示信息
       setTimeout(() => {

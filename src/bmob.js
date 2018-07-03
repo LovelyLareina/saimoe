@@ -12,40 +12,31 @@ export function register (userInfo = {}) {
     user.set('password', userInfo.password)
     user.set('email', userInfo.email)
     user.register(userInfo).then(res => {
-      console.log(res)
+      console.log(`注册的对对对的信息` + res)
     }).catch(err => {
-      console.log(err)
+      console.log(`注册的错误信息` + err)
     })
   })
 }
 
-export function search (config) {
+// 登录
+export function login (userInfo = {}) {
   return new Promise(function (resolve, reject) {
-    const query = Bmob.Query('test')
-    query.equalTo('name', '==', config.name)
-    query.find().then(res => {
-      console.log(res)
+    Bmob.User.logIn(userInfo.username, userInfo.password, {
+      success: function (user) {
+        if (!user.get('emailVerified')) {
+          resolve({ 'code': '001', 'email': user.get('email') })
+          return
+        }
+        resolve({ 'code': '000', 'avatar': user.get('avatar'), 'userId': user.id })
+      },
+      error: function (user, error) {
+        reject(error)
+      }
     })
   })
 }
-// // 登录
-// export function login (userInfo = {}) {
-//   return new Promise(function (resolve, reject) {
-//     Bmob.User.logIn(userInfo.username, userInfo.password, {
-//       success: function (user) {
-//         if (!user.get('emailVerified')) {
-//           resolve({ 'code': '001', 'email': user.get('email') })
-//           return
-//         }
-//         resolve({ 'code': '000', 'avatar': user.get('avatar'), 'userId': user.id })
-//       },
-//       error: function (user, error) {
-//         reject(error)
-//       }
-//     })
-//   })
-// }
-//
+
 // // 登出
 // export function bmobLogout () {
 //   return new Promise(function (resolve, reject) {
