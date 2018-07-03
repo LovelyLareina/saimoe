@@ -25,7 +25,6 @@
   </div>
 </template>
 <script>
-import { search } from '../../bmob'
 import FyHead from '../common/fyHead.vue'
 export default {
   name: 'Home',
@@ -35,9 +34,6 @@ export default {
     }
   },
   created () {
-    search({
-      name: '111'
-    })
   },
   mounted () {
   },

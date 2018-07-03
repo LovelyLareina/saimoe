@@ -5,7 +5,7 @@
       <div class="fy-main-left">
         <div class="fy-register-form" v-for="(val, idx) in dataList" :key="idx">
           <span>{{val}}</span>
-          <input :type="{'password': idx === 1 || idx === 2, 'text': idx === 0 || idx === 3}" v-model="userData[idx]">
+          <input :type="idx === 1 || idx === 2 ? 'password' : 'text'" v-model="userData[idx]">
         </div>
         <a class="fy-creat-btn" @click="createdUser">创建用户</a>
       </div>
