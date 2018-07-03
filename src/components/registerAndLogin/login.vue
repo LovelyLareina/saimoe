@@ -9,12 +9,11 @@
           <input type="text">
         </div>
         <div v-show="!isLogin" class="fy-register-form">
-          <span>请输入您在风影的注册邮箱</span>
+          <p>请输入您在风影的注册邮箱：</p>
           <input type="text">
         </div>
         <div class="fy-tips" v-show="isLogin">
           <div class="fy-check-left"><input type="checkbox"><span>七天内自动登录</span></div>
-         <!--<a class="fy-login-btn fy-setlogin-btn">七天内自动登录</a>-->
           <a class="fy-forget-btn fy-cursor-btn" @click="forgetPsw">忘记密码</a>
         </div>
         <a class="fy-creat-btn">{{isLogin ? '立即登录' : '重设密码'}}</a>
@@ -104,6 +103,9 @@ export default {
       margin-top: 30px;
       padding-left: 20px;
       border-left: 1px solid #e8989a;
+    }
+    .fy-forget-btn:hover{
+      font-weight: bold;
     }
   }
   .fy-creat-btn{

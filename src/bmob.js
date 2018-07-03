@@ -5,22 +5,13 @@ Bmob.initialize('d1feb029226a3b6475d0d368bdd54722', '31f10576a0109ddf89c7dbc1293
 // console.log(user)
 
 // 注册
-export function register(userInfo = {}) {
+export function register (userInfo = {}) {
   return new Promise(function (resolve, reject) {
-    Bmob.User.register(userInfo).then(res => {
-      console.log(res)
-    }).catch(err => {
-      console.log(err)
-    });
-  })
-}
-
-export function test(config) {
-  return new Promise(function (resolve, reject) {
-    const query = Bmob.Query('test');
-    query.set("name",config.name)
-    query.set("cover",config.cover)
-    query.save().then(res => {
+    var user = new Bmob.User()
+    user.set('username', userInfo.username)
+    user.set('password', userInfo.password)
+    user.set('email', userInfo.email)
+    user.register(userInfo).then(res => {
       console.log(res)
     }).catch(err => {
       console.log(err)
@@ -28,20 +19,15 @@ export function test(config) {
   })
 }
 
-
-export function search(config) {
+export function search (config) {
   return new Promise(function (resolve, reject) {
-    const query = Bmob.Query("test");
-    query.equalTo("name","==", config.name);
+    const query = Bmob.Query('test')
+    query.equalTo('name', '==', config.name)
     query.find().then(res => {
       console.log(res)
-    });
+    })
   })
 }
-
-
-
-
 // // 登录
 // export function login (userInfo = {}) {
 //   return new Promise(function (resolve, reject) {

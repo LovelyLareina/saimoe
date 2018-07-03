@@ -5,9 +5,9 @@
       <div class="fy-main-left">
         <div class="fy-register-form" v-for="(val, idx) in dataList" :key="idx">
           <span>{{val}}</span>
-          <input type="text">
+          <input :type="{'password': idx === 1 || idx === 2, 'text': idx === 0 || idx === 3}" v-model="userData[idx]">
         </div>
-        <a class="fy-creat-btn">创建用户</a>
+        <a class="fy-creat-btn" @click="createdUser">创建用户</a>
       </div>
       <div class="fy-main-right">
         <p>已经有账号了？</p>
@@ -18,12 +18,14 @@
 </template>
 <script>
 import FyHead from '../common/fyHead.vue'
+import {register} from '../../bmob.js'
 export default {
   name: 'register',
   components: {FyHead},
   data () {
     return {
-      dataList: ['邮箱：', '密码：', '确认密码：', '昵称：']
+      dataList: ['邮箱：', '密码：', '确认密码：', '昵称：'],
+      userData: []
     }
   },
   created () {
@@ -33,6 +35,28 @@ export default {
   methods: {
     fylogin () { // 立即登录
       this.$router.push({path: 'login', params: {}})
+    },
+    createdUser () { // 创建用户
+      let data = {
+        email: this.userData[0],
+        password: this.userData[1],
+        username: this.userData[3]
+      }
+      register(data).then((result) => {
+        if (result.code === '001') {
+          let emailFormat = `**${result.email.substring(2)}`
+          this._showMessage(`请先验证${emailFormat}邮箱！`)
+          return
+        } else if (result.code === '000') {
+          console.log('登录成功')
+          window.localStorage.setItem('avatar', result.avatar)
+          this.$router.push({path: 'BAM', query: {'userId': result.userId}})
+        }
+      }, (error) => {
+        if (error.code === 101) {
+          this._showMessage(`用户名或密码错误！`)
+        }
+      })
     }
   }
 }
