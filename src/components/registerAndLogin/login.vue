@@ -61,7 +61,10 @@ export default {
         let data = {email: this.userData[0],
           password: this.userData[1]}
         login(data).then((result) => {
-          if (result.code === '000') {
+          if (result.code === '001') {
+            let emailFormat = `**${result.email.substring(2)}`
+            this.showMessage(`请先验证${emailFormat}邮箱！`)
+          } else if (result.code === '000') {
             this.showMessage('登录成功')
             window.localStorage.setItem('avatar', result.avatar)
           }

@@ -7,22 +7,17 @@ Bmob.initialize('d1feb029226a3b6475d0d368bdd54722', '31f10576a0109ddf89c7dbc1293
 // 注册
 export function register (userInfo = {}) {
   return new Promise(function (resolve, reject) {
-    var user = new Bmob.User()
-    user.set('username', userInfo.username)
-    user.set('password', userInfo.password)
-    user.set('email', userInfo.email)
-    user.register(userInfo).then(res => {
-      console.log(`注册的对对对的信息` + res)
+    Bmob.User.register(userInfo).then(res => {
+      console.log(`注册的正确的信息` + res)
     }).catch(err => {
       console.log(`注册的错误信息` + err)
     })
   })
 }
-
 // 登录
 export function login (userInfo = {}) {
   return new Promise(function (resolve, reject) {
-    Bmob.User.logIn(userInfo.username, userInfo.password, {
+    Bmob.User.login(userInfo.username, userInfo.password, {
       success: function (user) {
         if (!user.get('emailVerified')) {
           resolve({ 'code': '001', 'email': user.get('email') })
