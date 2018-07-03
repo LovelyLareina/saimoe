@@ -32,8 +32,9 @@ input{
 
 .fy-head{
   width: 100%;
-  border-bottom: 1px solid #e8989a;
+  /*border-bottom: 1px solid #e8989a;*/
   padding: 5px 0;
+  background-color: #e8989a;
 }
 .fy-head-wrapper{
   width: 80%;
@@ -52,7 +53,7 @@ input{
 .fy-head-left .fy-title{
   float: left;
   margin-left: 12px;
-  color: #e8989a;
+  color: white;
   font-size: 25px;
   font-weight: bold;
   height: 50px;
@@ -99,7 +100,7 @@ input{
 }
 .fy-main{
   width: 80%;
-  margin: 30px auto 0;
+  margin: 70px auto 0;
 }
 .fy-main::after {
   content: '';
@@ -141,7 +142,7 @@ input{
   color: #e8989a;
 }
 .fy-foot{
-  margin: 30px auto 0;
+  margin: 70px auto 0;
   width: 80%;
 }
 .fy-foot::after{
@@ -171,7 +172,7 @@ input{
   clear: both;
 }
 .fy-end{
-  margin: 30px auto 0;
+  margin: 70px auto 0;
   width: 80%;
   border-top: 1px solid #e8989a;
 }

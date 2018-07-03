@@ -6,7 +6,7 @@
         <h1 class="fy-title">风影</h1>
       </div>
       <div class="fy-head-right" v-show="showAbout">
-        <a class="fy-white-btn fy-cursor-btn" @click="aboutFy">关于风影</a>
+        <a class="fy-about-btn fy-cursor-btn" @click="aboutFy">关于风影</a>
       </div>
     </div>
   </div>
@@ -29,4 +29,20 @@ export default {
 </script>
 
 <style scoped>
+  .fy-about-btn{
+    color: #e8989a;
+    background-color: white;
+    text-align: center;
+    font-size: 16px;
+    /*height: 40px;*/
+    line-height: 40px;
+    border-radius: 5px;
+    padding: 8px 13px
+  }
+  .fy-about-btn:hover{
+    color: white;
+    background-color: #e8989a;
+    border: 2px solid white;
+    border-radius: 5px;
+  }
 </style>
