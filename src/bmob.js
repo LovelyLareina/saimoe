@@ -17,8 +17,9 @@ export function register (userInfo = {}) {
 // 登录
 export function login (userInfo = {}) {
   return new Promise(function (resolve, reject) {
-    Bmob.User.login(userInfo.username, userInfo.password, {
+    Bmob.User.login(userInfo.email, userInfo.password, {
       success: function (user) {
+        console.log(`登录成功的用户信息` + user)
         if (!user.get('emailVerified')) {
           resolve({ 'code': '001', 'email': user.get('email') })
           return
@@ -26,6 +27,7 @@ export function login (userInfo = {}) {
         resolve({ 'code': '000', 'avatar': user.get('avatar'), 'userId': user.id })
       },
       error: function (user, error) {
+        console.log(`登录失败的用户信息` + user)
         reject(error)
       }
     })

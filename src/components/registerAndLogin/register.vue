@@ -47,9 +47,10 @@ export default {
     },
     createdUser () { // 创建用户
       let data = {
-        email: this.userData[0],
-        password: this.userData[1],
-        username: this.userData[3]
+        nickname: this.userData[3], // 昵称
+        password: this.userData[1], // 密码
+        username: this.userData[0], // 邮箱
+        email: this.userData[0] // 邮箱
       }
       if (!this.verificate(this.userData)) { // 用户信息有误
         return

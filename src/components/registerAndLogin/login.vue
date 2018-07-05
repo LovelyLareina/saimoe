@@ -58,19 +58,22 @@ export default {
     },
     loginOrRestpwd () { // 登录或者重设密码
       if (this.isLogin) { // 登录
-        let data = {email: this.userData[0],
-          password: this.userData[1]}
+        let data = {
+          email: this.userData[0],
+          password: this.userData[1]
+        }
+        let self = this
         login(data).then((result) => {
           if (result.code === '001') {
             let emailFormat = `**${result.email.substring(2)}`
-            this.showMessage(`请先验证${emailFormat}邮箱！`)
+            self.showMessage(`请先验证${emailFormat}邮箱！`)
           } else if (result.code === '000') {
-            this.showMessage('登录成功')
+            self.showMessage('登录成功')
             window.localStorage.setItem('avatar', result.avatar)
           }
         }, (error) => {
           if (error.code === 101) {
-            this.showMessage(`用户名或密码错误！`)
+            self.showMessage(`用户名或密码错误！`)
           }
         })
       } else { // 重设密码
