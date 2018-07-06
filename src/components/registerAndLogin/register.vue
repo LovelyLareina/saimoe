@@ -57,7 +57,6 @@ export default {
       }
       let self = this
       register(data).then((result) => {
-        console.log(result)
         this.showMessage(`恭喜你，注册成功！`, function () {
           self.isLogin = true
         })
@@ -68,7 +67,6 @@ export default {
           self.showMessage(`邮箱已经存在`)
         } else {
           self.showMessage(`${res.message}`)
-          console.log(`${res.message}`)
         }
       })
     },
