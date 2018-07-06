@@ -5,8 +5,16 @@
         <div class="fy-btn"></div>
         <h1 class="fy-title">风影</h1>
       </div>
+      <div class="fy-left-btnlist" v-show="showBtnList">
+        <ul v-for="(val, idx) in headBtnList" :key="idx">
+          <li><a class="fy-cursor-btn">{{val}}</a></li>
+        </ul>
+      </div>
       <div class="fy-head-right" v-show="showAbout">
         <a class="fy-about-btn fy-cursor-btn" @click="aboutFy">关于风影</a>
+      </div>
+      <div class="fy-head-right" v-show="showLayout">
+        <a class="fy-about-btn fy-cursor-btn" @click="aboutFy">退出</a>
       </div>
     </div>
   </div>
@@ -18,6 +26,19 @@ export default {
     showAbout: {
       type: Boolean,
       default: true
+    },
+    showLayout: {
+      type: Boolean,
+      default: true
+    },
+    showBtnList: {
+      type: Boolean,
+      default: true
+    }
+  },
+  data () {
+    return {
+      headBtnList: ['首页', '我的主页', '写日记', '设置']
     }
   },
   methods: {
@@ -28,21 +49,44 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+  .fy-left-btnlist{
+    float: left;
+    margin-left: 40px;
+    margin-top: 10px;
+    ul{
+      float: left;
+      li{
+         float: left;
+         font-size: 17px;
+         height: 30px;
+         line-height: 30px;
+         padding: 0 30px;
+         border-left: 1px solid white;
+        a{
+          color: white;
+        }
+        a:hover{
+          font-weight: bold;
+        }
+       }
+    }
+  }
   .fy-about-btn{
-    color: #e8989a;
-    background-color: white;
-    text-align: center;
-    font-size: 16px;
-    /*height: 40px;*/
-    line-height: 40px;
-    border-radius: 5px;
-    padding: 8px 13px
+    color: white;
+    font-size: 17px;
+    height: 50px;
+    line-height: 50px;
   }
   .fy-about-btn:hover{
-    color: white;
-    background-color: #e8989a;
-    border: 2px solid white;
-    border-radius: 5px;
+    font-weight: bold;
   }
+  /*.fy-head-right{*/
+    /*i{*/
+      /*display: block;*/
+      /*width: 16px;*/
+      /*height: 16px;*/
+      /*background: url("../../assets/img/home/layout.png");*/
+    /*}*/
+  /*}*/
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fy-head :show-about="false"></fy-head>
+    <fy-head :show-about="false" :show-btn-list="false" :show-layout="false"></fy-head>
     <div class="fy-main">
       <div class="fy-main-left">
         <div class="fy-register-form" v-for="(val, idx) in inputData" :key="idx">

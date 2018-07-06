@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fy-head :show-about="true"></fy-head>
+    <fy-head :show-about="true" :show-btn-list="false" :show-layout="false"></fy-head>
     <div class="fy-main">
       <div class="fy-main-left">
         <h2>风影是一个简单、私密的日记本。</h2>

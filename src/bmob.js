@@ -8,28 +8,21 @@ Bmob.initialize('d1feb029226a3b6475d0d368bdd54722', '31f10576a0109ddf89c7dbc1293
 export function register (userInfo = {}) {
   return new Promise(function (resolve, reject) {
     Bmob.User.register(userInfo).then(res => {
-      console.log(`注册的正确的信息` + res)
     }).catch(err => {
-      console.log(`注册的错误信息` + err)
     })
   })
 }
+
 // 登录
 export function login (userInfo = {}) {
   return new Promise(function (resolve, reject) {
-    Bmob.User.login(userInfo.email, userInfo.password, {
-      success: function (user) {
-        console.log(`登录成功的用户信息` + user)
-        if (!user.get('emailVerified')) {
-          resolve({ 'code': '001', 'email': user.get('email') })
-          return
-        }
-        resolve({ 'code': '000', 'avatar': user.get('avatar'), 'userId': user.id })
-      },
-      error: function (user, error) {
-        console.log(`登录失败的用户信息` + user)
-        reject(error)
+    Bmob.User.login(userInfo.username, userInfo.password).then(res => {
+      if (!res.emailVerified) { // 邮箱没验证
+        resolve({ 'code': '001', 'email': res.email })
       }
+      resolve({'code': '000'})
+    }).catch(err => {
+      reject(err)
     })
   })
 }

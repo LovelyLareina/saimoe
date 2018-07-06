@@ -1,6 +1,6 @@
 <template>
   <div>
-    <fy-head :show-about="false"></fy-head>
+    <fy-head :show-about="false" :show-btn-list="false" :show-layout="false"></fy-head>
     <div class="fy-main">
       <div class="fy-main-left">
         <p>{{isLogin ? '请登录您的账号' : '找回密码'}}</p>
@@ -13,10 +13,11 @@
           <input type="text">
         </div>
         <div class="fy-tips" v-show="isLogin">
-          <div class="fy-check-left"><input type="checkbox" checked="checked"><span>七天内自动登录</span></div>
-          <a class="fy-forget-btn fy-cursor-btn" @click="forgetPsw">忘记密码</a>
+          <!--<div class="fy-check-left"><input type="checkbox" checked="checked"><span>七天内自动登录</span></div>-->
+          <a class="fy-com-btn fy-cursor-btn" @click="loginOrRestpwd('login')">立即登录</a>
+          <a class="fy-com-btn fy-forget-btn fy-cursor-btn" @click="forgetPsw">忘记密码</a>
         </div>
-        <a class="fy-creat-btn" @click="loginOrRestpwd">{{isLogin ? '立即登录' : '重设密码'}}</a>
+        <a class="fy-reset-btn" v-show="!isLogin" @click="loginOrRestpwd('restpwd')">重设密码</a>
       </div>
       <div class="fy-main-right">
         <p>还没有账号？</p>
@@ -56,10 +57,10 @@ export default {
     forgetPsw () { // 忘记密码
       this.isLogin = false
     },
-    loginOrRestpwd () { // 登录或者重设密码
-      if (this.isLogin) { // 登录
+    loginOrRestpwd (parma) { // 登录或者重设密码
+      if (parma === 'login') { // 登录
         let data = {
-          email: this.userData[0],
+          username: this.userData[0],
           password: this.userData[1]
         }
         let self = this
@@ -70,6 +71,7 @@ export default {
           } else if (result.code === '000') {
             self.showMessage('登录成功')
             window.localStorage.setItem('avatar', result.avatar)
+            this.$router.push({path: 'writeDiary', params: {}})
           }
         }, (error) => {
           if (error.code === 101) {
@@ -140,43 +142,32 @@ export default {
     }
   }
   .fy-tips{
-    margin-top: 20px;
+    margin-top: 40px;
     height: 100px;
-    width: 100%;
-    .fy-check-left{
+    width: 300px;
+    .fy-com-btn{
       float: left;
-      margin-top: 30px;
+      margin-left: 20px;
+      color: #e8989a;
       text-align: center;
-      input{
-        display: inline-block;
-        vertical-align: top;
-        margin: 1px 0 0;
-        padding: 0;
-        width: 18px;
-        height: 18px;
-      }
-      span{
-        display: inline-block;
-        font-size: 14px;
-        margin-left: 5px;
-      }
+      font-size: 16px;
+      border: 1px solid #e8989a;
+      border-radius: 5px;
+      padding: 8px 15px;
+    }
+    .fy-com-btn:hover{
+      color: white;
+      background-color: #e8989a;
+      border-radius: 5px;
     }
     .fy-forget-btn{
-      float: left;
-      color: #e8989a;
-      font-size: 14px;
-      margin-left: 20px;
-      margin-top: 30px;
-      padding-left: 20px;
-      border-left: 1px solid #e8989a;
-    }
-    .fy-forget-btn:hover{
-      font-weight: bold;
+      float: right;
+      margin-right: 20px;
     }
   }
-  .fy-creat-btn{
+  .fy-reset-btn{
+    float: left;
     display: inline-block;
-    margin-top: 15px;
     color: #e8989a;
     text-align: center;
     font-size: 16px;
@@ -184,7 +175,7 @@ export default {
     border-radius: 5px;
     padding: 8px 25px;
   }
-  .fy-creat-btn:hover{
+  .fy-reset-btn:hover{
     color: white;
     background-color: #e8989a;
     border-radius: 5px;
